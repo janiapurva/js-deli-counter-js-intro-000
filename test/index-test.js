@@ -1,4 +1,4 @@
-var katzDeli = []; 
+var katzDeli = [];
 
 function takeANumber(katzDeli, name) {
   katzDeli.push(`${name}`);
@@ -6,7 +6,7 @@ function takeANumber(katzDeli, name) {
 }
 
 
-function takeANumber(katzDeliLine, nowServing) {	
+function takeANumber(katzDeliLine, nowServing) {
 
 
 function nowServing(katzDeli) {
@@ -40,4 +40,3 @@ function currentLine(katzDeli) {
   } else
   return(`The line is currently:` + line);
 }
-
