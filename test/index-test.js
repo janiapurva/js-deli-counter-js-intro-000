@@ -9,22 +9,17 @@ describe('deli', () => {
       katzDeli = [];
       otherDeli = ["Steven", "Blake", "Avi"];
     });
-    var katzDeli = [];
+    var katzDeli = []; 
     function takeANumber(katzDeli, name) {
       katzDeli.push(`${name}`);
       return(`Welcome, ${name}. You are number ${katzDeli.length} in line.`);
     }
-    function nowServing(katzDeli) {
-      let i = 0;
-      while (i < katzDeli.length) {
-        i++;
-      }
-      if (katzDeli.length === 0) {
-        return "There is nobody waiting to be served!";
-      }
-      else
-      return (`Currently serving ${katzDeli.shift()}.`);
+    
 
+    it('appends the person the end of the line if there are already people on it', () => {
+      expect(takeANumber(otherDeli, 'Grace')).toEqual("Welcome, Grace. You are number 4 in line.");
+      expect(otherDeli).toEqual(["Steven", "Blake", "Avi", "Grace"]);
+    });
 
     it("properly handles multiple people being added", () => {
       takeANumber(katzDeli, 'Ada');
@@ -46,7 +41,16 @@ describe('deli', () => {
       expect(deliLine).toEqual(["Blake", "Avi"]);
     });
   });
-
+  function nowServing(katzDeli) {
+  let i = 0;
+  while (i < katzDeli.length) {
+    i++;
+  }
+  if (katzDeli.length === 0) {
+    return "There is nobody waiting to be served!";
+  }
+  else
+  return (`Currently serving ${katzDeli.shift()}.`);
   describe('currentLine', () => {
 
     it('returns "The line is currently empty." if no one is in line', () => {
@@ -56,7 +60,7 @@ describe('deli', () => {
     it('says who is in line when there are people waiting', () => {
       expect(currentLine(["Bill", "Jane", "Ann"])).toEqual("The line is currently: 1. Bill, 2. Jane, 3. Ann");
     });
-
+ 
     it('returns a different response programmatically given a different array of names', () => {
       let customerArrays = [
         ["Nicky", "Jared", "Katie"],
@@ -67,7 +71,7 @@ describe('deli', () => {
 
       let newLine = customerArrays[Math.floor(Math.random()*4)]
       let expectedOutput = `The line is currently: 1. ${newLine[0]}, 2. ${newLine[1]}, 3. ${newLine[2]}`
-
+      
       expect(currentLine(newLine)).toEqual(expectedOutput);
     });
 
