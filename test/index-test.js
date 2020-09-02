@@ -25,7 +25,7 @@ describe('deli', () => {
       else
       return (`Currently serving ${katzDeli.shift()}.`);
 
-    
+
     it("properly handles multiple people being added", () => {
       takeANumber(katzDeli, 'Ada');
       takeANumber(katzDeli, 'Grace');
