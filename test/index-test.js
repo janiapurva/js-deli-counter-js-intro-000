@@ -14,13 +14,18 @@ describe('deli', () => {
       katzDeli.push(`${name}`);
       return(`Welcome, ${name}. You are number ${katzDeli.length} in line.`);
     }
+    function nowServing(katzDeli) {
+      let i = 0;
+      while (i < katzDeli.length) {
+        i++;
+      }
+      if (katzDeli.length === 0) {
+        return "There is nobody waiting to be served!";
+      }
+      else
+      return (`Currently serving ${katzDeli.shift()}.`);
 
-
-    it('appends the person the end of the line if there are already people on it', () => {
-      expect(takeANumber(otherDeli, 'Grace')).toEqual("Welcome, Grace. You are number 4 in line.");
-      expect(otherDeli).toEqual(["Steven", "Blake", "Avi", "Grace"]);
-    });
-
+    
     it("properly handles multiple people being added", () => {
       takeANumber(katzDeli, 'Ada');
       takeANumber(katzDeli, 'Grace');
